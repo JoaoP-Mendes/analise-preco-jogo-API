@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS jogos (
     desenvolvedora VARCHAR (255) NOT NULL,
     publicadora VARCHAR(255) NOT NULL,
     genero VARCHAR(255) NOT NULL, 
-    gratuito ENUM('S', 'N') NOT NULL DEFAULT 's'
+    gratuito boolean NOT NULL DEFAULT True
 ) DEFAULT CHARSET = utf8mb4;
 
 CREATE TABLE IF NOT EXISTS historico(
