@@ -1,5 +1,4 @@
 import requests
-import pprint
 
 def requisicao(appids):
     try:
@@ -16,13 +15,14 @@ def requisicao(appids):
                 "appidsteam":dados_requisicao["steam_appid"],
                 "desenvolvedora":dados_requisicao["developers"][0],
                 "publicadora":dados_requisicao["publishers"][0],
-                "genero":dados_requisicao["genres"][0]["description"]
+                "genero":dados_requisicao["genres"][0]["description"],
+                "gratuito":dados_requisicao["is_free"]
             }
             if dados_requisicao["is_free"]:
                 retorno_requisicao["preco"] = 0.00
             else:
                 retorno_requisicao["preco"] = round(dados_requisicao["price_overview"]["initial"] / 100, 2)
-            pprint.pprint(retorno_requisicao)
+            return retorno_requisicao
 
         else:
             print(f"Algo de errado aconteceu: {busca.status_code}")
