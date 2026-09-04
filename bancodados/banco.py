@@ -1,5 +1,5 @@
 import pymysql.connections as mysql
-from config.config import DB_CONFIG
+from config.config import BD_CONFIG
 
 class bancoDados():
     def __init__(self):
@@ -7,7 +7,7 @@ class bancoDados():
 
     def conectar(self):
         try:
-            self.conexao = mysql.Connection(**DB_CONFIG)
+            self.conexao = mysql.Connection(**BD_CONFIG)
 
         except Exception as e:
             print(f"Ocorreu um erro inesperado: {e} ")
