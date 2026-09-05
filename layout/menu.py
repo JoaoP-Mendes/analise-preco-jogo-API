@@ -22,7 +22,8 @@ def menu_jogo(connObj):
             elif resposta == 2:
                 print("")
                 info_appid = input("Digite o APPID do jogo para exclusão: ")
-                Jogo.excluirJogo(connObj, info_appid)
+                jogo = Jogo(connObj, info_appid)
+                jogo.excluirJogo(info_appid)
                 excluido()
 
             elif resposta == 3:
@@ -33,6 +34,7 @@ def menu_jogo(connObj):
             elif resposta == 0:
                 print("")
                 voltando()
+                break
 
             else:
                 print("")
@@ -62,15 +64,13 @@ def menu_historico(connObj):
             elif resposta == 0:
                 print("")
                 voltando()
+                break
 
             else:
                 print("")
                 print("ERRO: Ação não reconhecida, informe uma ação válida.")
                 print("")
                 continue
-
+ 
         except Exception as e:
             print(f"Algo deu errado: {e}")
-
-
-menu_historico(connObj)
