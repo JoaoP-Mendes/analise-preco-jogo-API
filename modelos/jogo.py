@@ -23,5 +23,14 @@ class Jogo():
         except Exception as e:
             print(f"Ocorreu algo insperado:{e}")
 
+
+    def excluirJogo(self, quem):
+        try:
+            deletando = "DELETE FROM jogos WHERE appid = %s"
+            self.conexao.executar(deletando, quem)
+
+        except Exception as e:
+            print(f"Aconteceu algo: {e}")
+
 jofo = Jogo(conn, "10")
-jofo.novoJogo()
+jofo.excluirJogo("10")
