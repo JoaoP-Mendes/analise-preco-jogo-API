@@ -31,4 +31,4 @@ class Historico():
         ver = pd.read_sql("SELECT * FROM historico", self.conexao)
         print(ver)
     
-
+#a
