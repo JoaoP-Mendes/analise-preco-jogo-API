@@ -44,3 +44,6 @@ def voltando(mensagem="Carregando", segundos=2):
             sys.stdout.flush()
             time.sleep(0.25)
         print("")
+
+
+        

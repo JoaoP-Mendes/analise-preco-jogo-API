@@ -12,7 +12,7 @@ class Jogo():
         self.conexao = conexao
         self.appid = appid
 
-    @staticmethod
+
     def novoJogo(self): 
         try:
             dados_requisicao = requisicao(self.appid)
@@ -27,7 +27,6 @@ class Jogo():
         except Exception as e:
             print(f"Ocorreu algo insperado:{e}")
 
-    @staticmethod
     def excluirJogo(self, quem):
         try:
             deletando = "DELETE FROM jogos WHERE appid = %s"
@@ -35,8 +34,7 @@ class Jogo():
 
         except Exception as e:
             print(f"Aconteceu algo: {e}")
-            
-    @staticmethod
+
     def listarJogas(self):
         try:
             listando = pd.read_sql("SELECT * FROM jogos", self.conexao)

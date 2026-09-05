@@ -10,10 +10,11 @@ connObj.conectar()
 def menu_jogo(connObj):
     while True:
         try:
+            print("")
             resposta = int(input("\033[36m----- MENU JOGO -----\033[m \n1 - Adicionar novo jogo \n2 - Excluir jogo \n3 - Listar jogos \n0 - Voltar menu \nResposta: "))
             if resposta == 1:
                 print("")
-                info_appid = input("Digite o APPID do jogo: ")
+                info_appid = int(input("Digite o APPID do jogo: "))
 
                 jogo = Jogo(connObj, info_appid)
                 jogo.novoJogo()
@@ -49,6 +50,7 @@ def menu_jogo(connObj):
 def menu_historico(connObj):
     while True:
         try:
+            print("")
             resposta = int(input("\033[36m----- HISTORICO -----\033[m \n1 - Atualizar historico \n2 - Ver historico \n0 - Voltar menu \nResposta: "))
             if resposta == 1:
                 print("")

@@ -12,7 +12,6 @@ class Historico():
         self.conexao = conexao
 
 
-    @staticmethod
     def novoRegistro(self):
         try:
             appids_banco = pd.read_sql("SELECT * FROM jogos", self.conexao.conexao)
