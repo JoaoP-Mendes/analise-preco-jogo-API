@@ -12,10 +12,10 @@ class Historico():
         self.conexao = conexao
 
 
-    
+    @staticmethod
     def novoRegistro(self):
         try:
-            appids_banco = pd.read_sql("SELECT * FROM jogos", self.conexao)
+            appids_banco = pd.read_sql("SELECT * FROM jogos", self.conexao.conexao)
             chaves_appids = appids_banco["appid"]
 
             for chave in chaves_appids:
@@ -27,6 +27,7 @@ class Historico():
         except Exception as e:
             print(f"Ocorreu algo inesperado: {e}")
 
+    @staticmethod
     def verHistorico(self):
         ver = pd.read_sql("SELECT * FROM historico", self.conexao)
         print(ver)
