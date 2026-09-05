@@ -10,6 +10,16 @@ def cadastrando(mensagem="Cadastrando", segundos=3):
     print("\r\033[34mJogo cadastrado com sucesso!\033[m")
     print("")
 
+def carregando(mensagem="carregando", segundos=3):
+    for _ in range(segundos):
+        for ponto in range(4):
+            sys.stdout.write(f"\r{mensagem}{'\033[34m.\033[m' * ponto}")
+            sys.stdout.flush()
+            time.sleep(0.25)
+    print("\r\033[34mAção realizada com sucesso, historico atualizado!\033[m")
+    print("")
+
+
 def excluido(mensagem="Carregando", segundos=3):
     for _ in range(segundos):
         for ponto in range(4):
