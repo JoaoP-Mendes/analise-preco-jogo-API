@@ -1,5 +1,6 @@
 from api.steam import requisicao
 from bancodados.banco import bancoDados
+import pymysql
 
 conn = bancoDados()
 conn.conectar()
@@ -19,7 +20,9 @@ class Jogo():
 
             inserindo = "INSERT INTO jogos (appid, nome, desenvolvedora, publicadora, genero, gratuito) VALUES(%s, %s, %s, %s, %s, %s)"
             self.conexao.executar(inserindo, valores)
-            
+
+        except pymysql.err.IntegrityError:
+            print(f"O jogo com essa appid {self.appid} já está informado nos registros, informe um novo appid")   
         except Exception as e:
             print(f"Ocorreu algo insperado:{e}")
 
@@ -32,5 +35,8 @@ class Jogo():
         except Exception as e:
             print(f"Aconteceu algo: {e}")
 
-jofo = Jogo(conn, "10")
-jofo.excluirJogo("10")
+
+while True:
+    info = int(input("appid: "))
+    jofo = Jogo(conn, info)
+    jofo.novoJogo()
