@@ -1,6 +1,7 @@
 from api.steam import requisicao
 from bancodados.banco import bancoDados
 import pymysql
+import pandas as pd
 
 conn = bancoDados()
 conn.conectar()
@@ -35,8 +36,12 @@ class Jogo():
         except Exception as e:
             print(f"Aconteceu algo: {e}")
 
+    def listarJogas(self):
+        try:
+            listando = pd.read_sql("SELECT * FROM jogos", self.conexao)
+            print(listando)
 
-while True:
-    info = int(input("appid: "))
-    jofo = Jogo(conn, info)
-    jofo.novoJogo()
+        except Exception as e:
+            print(f"Aconteceu algo: {e}")
+
+
