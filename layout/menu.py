@@ -11,7 +11,7 @@ def menu_jogo(connObj):
     while True:
         try:
             print("")
-            resposta = int(input("\033[36m----- MENU JOGO -----\033[m \n1 - Adicionar novo jogo \n2 - Excluir jogo \n3 - Listar jogos \n0 - Voltar menu \nResposta: "))
+            resposta = int(input("\033[36m------- MENU JOGO -------\033[m \n1 - Adicionar novo jogo \n2 - Excluir jogo \n3 - Listar jogos \n0 - Voltar menu \nResposta: "))
             if resposta == 1:
                 print("")
                 info_appid = int(input("Digite o APPID do jogo: "))
@@ -25,7 +25,6 @@ def menu_jogo(connObj):
                 info_appid = input("Digite o APPID do jogo para exclusão: ")
                 jogo = Jogo(connObj, info_appid)
                 jogo.excluirJogo(info_appid)
-                excluido()
 
             elif resposta == 3:
                 print("")
@@ -51,7 +50,7 @@ def menu_historico(connObj):
     while True:
         try:
             print("")
-            resposta = int(input("\033[36m----- HISTORICO -----\033[m \n1 - Atualizar historico \n2 - Ver historico \n0 - Voltar menu \nResposta: "))
+            resposta = int(input("\033[36m------- HISTORICO -------\033[m \n1 - Atualizar historico \n2 - Ver historico \n0 - Voltar menu \nResposta: "))
             if resposta == 1:
                 print("")
                 historico = Historico(connObj)

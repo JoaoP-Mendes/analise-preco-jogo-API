@@ -1,6 +1,7 @@
 from api.steam import requisicao
 from bancodados.banco import bancoDados
 from datetime import date
+import pymysql
 import pandas as pd
 
 conn = bancoDados()
@@ -23,6 +24,7 @@ class Historico():
                 registro_historico = "INSERT INTO historico (appid, data_analise, preco) VALUES (%s, %s, %s)"
                 self.conexao.executar(registro_historico, valores)
 
+
         except Exception as e:
             print(f"Ocorreu algo inesperado: {e}")
 
@@ -30,5 +32,3 @@ class Historico():
     def verHistorico(self):
         ver = pd.read_sql("SELECT * FROM historico", self.conexao)
         print(ver)
-    
-#a
