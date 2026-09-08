@@ -1,5 +1,6 @@
 from api.steam import requisicao
 from bancodados.banco import bancoDados
+from layout.layout import *
 import pymysql
 import pandas as pd
 
@@ -8,11 +9,16 @@ conn.conectar()
 
 
 class Jogo():
+    """
+Cria um novo jogo para encaminhar para o banco de dados.
+
+Link para pegar a appid: https://steamdb.info/apps/
+    """
     def __init__(self, conexao, appid):
         self.conexao = conexao
         self.appid = appid
 
-    @staticmethod
+
     def novoJogo(self): 
         try:
             dados_requisicao = requisicao(self.appid)
@@ -23,20 +29,23 @@ class Jogo():
             self.conexao.executar(inserindo, valores)
 
         except pymysql.err.IntegrityError:
-            print(f"Jogo já informado com essa appid {self.appid}, informe um para seguir")   
+            print(f"Jogo já informado com essa appid {self.appid}, informe um para seguir")  
+
         except Exception as e:
             print(f"Ocorreu algo insperado:{e}")
 
-    @staticmethod
     def excluirJogo(self, quem):
         try:
             deletando = "DELETE FROM jogos WHERE appid = %s"
             self.conexao.executar(deletando, quem)
+            excluido()
+
+        except pymysql.err.IntegrityError:
+            print(f"Não é possível excluir esse jogo, o jogo possui histórico cadastrado")
 
         except Exception as e:
             print(f"Aconteceu algo: {e}")
-            
-    @staticmethod
+
     def listarJogas(self):
         try:
             listando = pd.read_sql("SELECT * FROM jogos", self.conexao)

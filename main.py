@@ -7,6 +7,7 @@ connObj = bancoDados()
 connObj.conectar()
 
 while True:
+    print("")
     escolha = int(input("------------ INICIANDO SISTEMA ------------\nEscolha uma opção para começar\n > 1 - Jogo\n > 2 - Historico\n > 0 - Sair \nResposta: "))
     if escolha == 1:
         menu_jogo(connObj)
