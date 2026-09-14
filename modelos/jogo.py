@@ -27,6 +27,7 @@ Link para pegar a appid: https://steamdb.info/apps/
 
             inserindo = "INSERT INTO jogos (appid, nome, desenvolvedora, publicadora, genero, gratuito) VALUES(%s, %s, %s, %s, %s, %s)"
             self.conexao.executar(inserindo, valores)
+            cadastrando()
 
         except pymysql.err.IntegrityError:
             print(f"Jogo já informado com essa appid {self.appid}, informe um para seguir")  

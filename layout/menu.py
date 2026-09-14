@@ -18,7 +18,6 @@ def menu_jogo(connObj):
 
                 jogo = Jogo(connObj, info_appid)
                 jogo.novoJogo()
-                cadastrando()
 
             elif resposta == 2:
                 print("")
